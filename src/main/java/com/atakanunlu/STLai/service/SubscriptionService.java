@@ -4,7 +4,7 @@ import com.atakanunlu.STLai.dto.subscription.CheckoutRequest;
 import com.atakanunlu.STLai.dto.subscription.CheckoutResponse;
 import com.atakanunlu.STLai.dto.subscription.PortalResponse;
 import com.atakanunlu.STLai.dto.subscription.SubscriptionResponse;
-import org.jspecify.annotations.Nullable;
+
 
 public interface SubscriptionService {
      SubscriptionResponse getCurrentSubscription(Long userId);

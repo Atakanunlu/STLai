@@ -5,6 +5,7 @@ import com.atakanunlu.STLai.dto.project.ProjectResponse;
 import com.atakanunlu.STLai.dto.project.ProjectSummaryResponse;
 import com.atakanunlu.STLai.entity.Project;
 import com.atakanunlu.STLai.entity.User;
+import com.atakanunlu.STLai.error.ResourceNotFoundException;
 import com.atakanunlu.STLai.mapper.ProjectMapper;
 import com.atakanunlu.STLai.repository.ProjectRepository;
 import com.atakanunlu.STLai.repository.UserRepository;
@@ -99,7 +100,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     //INTERNAL FONKSIYON
     public Project getAccessibleProjectById(Long projectId, Long userId){
-        return projectRepository.findAccessibleProjectById(projectId,userId).orElseThrow();
+        return projectRepository.findAccessibleProjectById(projectId,userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Project", projectId.toString()));
     }
 
 }
